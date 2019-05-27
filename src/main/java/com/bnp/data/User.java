@@ -1,6 +1,10 @@
 package com.bnp.data;
 
-public class User {
+import org.springframework.security.core.GrantedAuthority;
+
+import java.util.Collection;
+
+public class User extends org.springframework.security.core.userdetails.User {
 
     private String username;
 
@@ -13,4 +17,8 @@ public class User {
     private String city;
 
     private String state;
+
+    User(String username, String password, Collection<? extends GrantedAuthority> authorities) {
+        super(username, password, authorities);
+    }
 }
